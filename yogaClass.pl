@@ -139,8 +139,7 @@ solucao(ListaSolucao) :-
 
     %    Testa todas as possibilidades de calça
     calca(Calca1), calca(Calca2), calca(Calca3), calca(Calca4), calca(Calca5),
-    todosDiferentes
-    ([Calca1, Calca2, Calca3, Calca4, Calca5]),
+    todosDiferentes([Calca1, Calca2, Calca3, Calca4, Calca5]),
 
     %    Testa todas as possibilidades de nome
     nome(Nome1), nome(Nome2), nome(Nome3), nome(Nome4), nome(Nome5),
