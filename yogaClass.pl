@@ -70,7 +70,7 @@ entre(X, Y, Z, Lista) :-
 todosDiferentes([]).
 todosDiferentes([H|T]) :- not(member(H,T)), todosDiferentes(T).
 
-solucao(ListaSolucao) :-
+solucao() :-
 
     %    Lista da solução do problema da aula de yoga.
     ListaSolucao = [
@@ -160,4 +160,7 @@ solucao(ListaSolucao) :-
 
     %    Testa todas as possibilidades de profissão
     profissao(Profissao1), profissao(Profissao2), profissao(Profissao3), profissao(Profissao4), profissao(Profissao5),
-    todosDiferentes([Profissao1, Profissao2, Profissao3, Profissao4, Profissao5]).
+    todosDiferentes([Profissao1, Profissao2, Profissao3, Profissao4, Profissao5]),
+
+    %    Mostrar saída de forma com que cada aluna fique em uma linha diferente.
+    maplist(writeln, ListaSolucao).
