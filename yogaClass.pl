@@ -62,6 +62,11 @@ aEsquerdaExatamente(X, Y, Lista) :-
 % X está à direita de Y (em qualquer posição à direita)
 aDireita(X, Y, Lista) :- aEsquerda(Y,X,Lista).
 
+% X está entre Y e Z, nessa ordem.
+entre(X, Y, Z, Lista) :-
+    aEsquerda(X, Z, Lista),
+    aDireita(X, Y, Lista).
+
 todosDiferentes([]).
 todosDiferentes([H|T]) :- not(member(H,T)), todosDiferentes(T).
 
@@ -86,8 +91,7 @@ solucao(ListaSolucao) :-
     member(aluna(_, marta, _, _, _, motorista), ListaSolucao),
 
     %    A aluna de calça Verde está em algum lugar entre a Arquiteta e a mulher de 36 anos, nessa ordem.
-    aEsquerda(aluna(verde, _, _, _, _, _), aluna(_, _, _, _, 36, _), ListaSolucao),
-    aDireita(aluna(verde, _, _, _, _, _), aluna(_, _, _, _, _, arquiteta), ListaSolucao),
+    entre(aluna(verde, _, _, _, _, _), aluna(_, _, _, _, _, arquiteta), aluna(_, _, _, _, 36, _), ListaSolucao),
 
     %    No quarto lugar está a mulher de 30 anos.
     Idade4 = 30,
@@ -99,8 +103,7 @@ solucao(ListaSolucao) :-
     aoLado(aluna(azul, _, _, _, _, _), aluna(_, _, _, _, 48, _), ListaSolucao),
 
     %    A Psicóloga está em algum lugar entre a aluna matriculada a mais tempo e a Comerciante, nessa ordem.
-    aEsquerda(aluna(_, _, _, _, _, psicologa), aluna(_, _, _, _, _, comerciante), ListaSolucao),
-    aDireita(aluna(_, _, _, _, _, psicologa), aluna(_, _, _, 2012, _, _), ListaSolucao),
+    entre(aluna(_, _, _, _, _, psicologa), aluna(_, _, _, 2012, _, _), aluna(_, _, _, _, _, comerciante), ListaSolucao),
 
     %    A Motorista está em algum lugar à direita da aluna de calça Branca.
     aDireita(aluna(_, _, _, _, _, motorista), aluna(branca, _, _, _, _, _), ListaSolucao),
@@ -112,8 +115,7 @@ solucao(ListaSolucao) :-
     Matricula4 = 2013,
 
     %    A aluna de calça Amarela está em algum lugar entre a aluna matriculada mais recentemente e a aluna de calça Branca, nessa ordem.
-    aEsquerda(aluna(amarela, _, _, _, _, _), aluna(branca, _, _, _, _, _), ListaSolucao),
-    aDireita(aluna(amarela, _, _, _, _, _), aluna(_, _, _, 2016, _, _), ListaSolucao),
+    entre(aluna(amarela, _, _, _, _, _), aluna(_, _, _, 2016, _, _), aluna(branca, _, _, _, _, _), ListaSolucao),
 
     %    A mulher de 42 anos gosta da posição Lotus.
     member(aluna(_, _, lotus, _, 42, _), ListaSolucao),
@@ -128,8 +130,7 @@ solucao(ListaSolucao) :-
     aoLado(aluna(_, _, _, _, 42, _), aluna(_, _, _, _, 48, _), ListaSolucao),
 
     %    Quem se matriculou em 2016 está em algum lugar entre quem se matriculou em 2012 e quem se matriculou em 2015, nessa ordem.
-    aEsquerda(aluna(_, _, _, 2016, _, _), aluna(_, _, _, 2015, _, _), ListaSolucao),
-    aDireita(aluna(_, _, _, 2016, _, _), aluna(_, _, _, 2012, _, _), ListaSolucao),
+    entre(aluna(_, _, _, 2016, _, _), aluna(_, _, _, 2012, _, _), aluna(_, _, _, 2015, _, _), ListaSolucao),
 
     %    A aluna que gosta da posição Árvore está em algum lugar à esquerda da aluna de calça Branca.
     aEsquerda(aluna(_, _, arvore, _, _, _), aluna(branca, _, _, _, _, _), ListaSolucao),
