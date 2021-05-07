@@ -38,6 +38,6 @@
 ---
 ## Resultado Esperado
 
-![img.png](img.png)
+![img.png](result.png)
 
 ---
