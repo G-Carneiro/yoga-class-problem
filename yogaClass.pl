@@ -42,12 +42,12 @@ profissao(comerciante).
 profissao(manicure).
 profissao(motorista).
 
-% X está ao lado de Y
+% X está ao lado de Y.
 aoLado(X, Y, Lista) :-
     nextto(X,Y,Lista);
     nextto(Y,X,Lista).
 
-% X está à esquerda de Y (em qualquer posição à esquerda)
+% X está à esquerda de Y (em qualquer posição à esquerda).
 aEsquerda(X, Y, Lista) :-
     nth0(IndexX,Lista,X),
     nth0(IndexY,Lista,Y),
@@ -59,7 +59,7 @@ aEsquerdaExatamente(X, Y, Lista) :-
     nth0(IndexY,Lista,Y),
     IndexX =:= IndexY - 1.
 
-% X está à direita de Y (em qualquer posição à direita)
+% X está à direita de Y (em qualquer posição à direita).
 aDireita(X, Y, Lista) :- aEsquerda(Y,X,Lista).
 
 % X está entre Y e Z, nessa ordem.
@@ -67,6 +67,7 @@ entre(X, Y, Z, Lista) :-
     aEsquerda(X, Z, Lista),
     aDireita(X, Y, Lista).
 
+% Verifica se todos elementos da lista são diferentes.
 todosDiferentes([]).
 todosDiferentes([H|T]) :- not(member(H,T)), todosDiferentes(T).
 
