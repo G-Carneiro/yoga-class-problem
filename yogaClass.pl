@@ -1,5 +1,3 @@
-:- use_module(library(clpfd)).
-
 % Definindo as cores das calças.
 calca(azul).
 calca(verde).
