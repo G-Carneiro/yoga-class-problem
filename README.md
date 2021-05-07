@@ -7,6 +7,13 @@
 - A solução deve ser encontrada utilizando prolog.
 
 ---
+## Execução
+
+- `swipl`
+- `[yogaClass].`
+- `solucao().`
+
+---
 ## Dicas
 
 - A aluna de calça Branca está em algum lugar à esquerda da aluna que se matriculou em 2014.
