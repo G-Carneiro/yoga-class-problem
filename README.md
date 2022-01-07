@@ -3,6 +3,7 @@
 ---
 ## Objetivo
 
+- Solucionar o problema apresentado em https://rachacuca.com.br/logica/problemas/aula-de-yoga/.
 - Cinco mulheres estão participando de uma aula de yoga. Descubra qual é a posição favorita de yoga de cada uma delas.
 - A solução deve ser encontrada utilizando prolog.
 
